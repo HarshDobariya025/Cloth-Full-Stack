@@ -4,9 +4,10 @@ import bcrypt from "bcrypt"; //for password bcrypt
 import jwt from 'jsonwebtoken'; //for token
 import dotenv from 'dotenv';
 dotenv.config();
+// require('dotenv').config();
+
 
 const createToken = (id) => {
-    console.log(JWT_SECRET)
     return jwt.sign({ id }, process.env.JWT_SECRET);
 };
 
@@ -25,7 +26,7 @@ const loginUser = async(req,res)=>{
             return res.json({success:true, token});
         }else{
             return res.json({success:false, message:"Invalid password"});
-        }``
+        }
     }
     catch(error){
         console.log(error);

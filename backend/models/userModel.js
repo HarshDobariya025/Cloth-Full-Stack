@@ -16,9 +16,6 @@ export default userModel;
 
 
 
-
-
-
 // const mongoose = require("mongoose");
 
 // // Define the schema
