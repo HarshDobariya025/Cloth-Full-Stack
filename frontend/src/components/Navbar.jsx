@@ -6,6 +6,7 @@ import { ShopContext } from '../context/ShopContext';
 const Navbar = () => {
   const [visible,setVisible] = useState(false);
   const { setShowSearch,getCartCount,navigate,token,setToken,setCartItems } = useContext(ShopContext);
+  const adminURL = import.meta.env.VITE_ADMIN_URL;
 
   const logout = ()=>{
     navigate('/login');
@@ -20,7 +21,7 @@ const Navbar = () => {
       <Link to='/'><img src={assets.logo} className='w-36' alt='logo'></img></Link>
 
       {/* Navbar */}
-      <ul className='hidden sm:flex gap-5 text-sm text-gray-700'>
+      <ul className='hidden sm:flex gap-5 text-sm text-gray-700 items-center'>
         <NavLink to='/' className='flex flex-col items-center gap-1'>
           <p>HOME</p>
           <hr className='w-2/4 border-none h-[1.5px] bg-gray-700' hidden/>
@@ -37,6 +38,9 @@ const Navbar = () => {
           <p>CONTACT</p>
           <hr className='w-2/4 border-none h-[1.5px] bg-gray-700' hidden/>
         </NavLink>
+        <a href={adminURL} target="_blank" rel="noopener noreferrer">
+        <button className="px-3 py-1 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100">Admin Panel</button>
+        </a>
       </ul>
 
       {/* Options */}
